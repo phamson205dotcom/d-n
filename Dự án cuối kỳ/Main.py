@@ -154,7 +154,7 @@ class TSPGUI(QMainWindow):
         y = [self.solver.campuses[i][1] for i in route]
         x.append(x[0])
         y.append(y[0])
-        ax.plot(x, y, marker='.', linestyle='-', color=color, markersize=6)
+        ax.plot(x, y, marker='o', linestyle='-', color=color, markersize=6)
         for i in route:
             cx, cy, name = self.solver.campuses[i]
             ax.text(
@@ -240,7 +240,7 @@ class TSPGUI(QMainWindow):
         y = [self.solver.campuses[i][1] for i in route]
         x.append(x[0])
         y.append(y[0])
-        ax.plot(x, y, marker='.', linestyle='-', color=color, markersize=8)
+        ax.plot(x, y, marker='o', linestyle='-', color=color, markersize=8)
         for i in route:
             cx, cy, name = self.solver.campuses[i]
             ax.text(
