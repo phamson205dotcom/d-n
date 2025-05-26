@@ -227,11 +227,14 @@ class TSPGUI(QMainWindow):
             self.restart_index += 1
         else:
             self.timer.stop()
-            best_route = self.solver.history[-1][0]
+            # Tìm route có iteration nhỏ nhất
+            best_entry = min(self.solver.history, key=lambda x: x[2])  # (route, dist, iteration)
+            best_route = best_entry[0]
             self.plot_route_with_color(best_route, color='green')
             self.update_statistics_labels()
             best_route_str = " → ".join([self.solver.campuses[j][2] for j in best_route])
             self.label_best_route.setText(f"Best Route: {best_route_str}")
+
 
     def plot_route_with_color(self, route, color='red'):
         self.fig_route.clear()
